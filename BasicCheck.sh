@@ -13,6 +13,7 @@ HLGBIT=1
 # egrep is regex for return '0' or '1'
 cd "$1"
 if(find ./ -name "Makefile" | egrep '.*')
+
 then
     if(make) # check if compilation passed
     then
@@ -28,7 +29,7 @@ then
         VLGBIT=0
      fi
     
-    valgrind --tool=helgrind chmod a+x ./$2 > Helgrind.txt 2>&1 # check thread race
+    valgrind --tool=helgrind ./$2 > Helgrind.txt 2>&1 # check thread race
    
      if(grep -q "ERROR SUMMARY: 0 errors" "Helgrind.txt") # check helgrind result
     then
