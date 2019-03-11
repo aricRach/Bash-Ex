@@ -11,7 +11,6 @@ HLGBIT=1
 
 # check if there is makeFile in 'dir path'
 # egrep is regex for return '0' or '1'
-cd "$1"
 if(find ./ -name "Makefile" | egrep '.*')
 
 then
