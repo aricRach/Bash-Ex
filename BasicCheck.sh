@@ -11,7 +11,7 @@ HLGBIT=1
 
 # check if there is makeFile in 'dir path'
 # egrep is regex for return '0' or '1'
-cd "$1"
+cd $1
 if(true)
 then
     if(true) # check if compilation passed
@@ -28,7 +28,7 @@ then
         VLGBIT=0
      fi
     
-    valgrind --tool=helgrind chmod a+x ./a.out > Helgrind.txt 2>&1 # check thread race
+    valgrind --tool=helgrind chmod a+x ./$2 > Helgrind.txt 2>&1 # check thread race
    
      if(grep -q "ERROR SUMMARY: 0 errors" "Helgrind.txt") # check helgrind result
     then
