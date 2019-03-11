@@ -12,9 +12,9 @@ HLGBIT=1
 # check if there is makeFile in 'dir path'
 # egrep is regex for return '0' or '1'
 cd "$1"
-if(0)
+if(true)
 then
-    if(0) # check if compilation passed
+    if(true) # check if compilation passed
     then
         CMP="Pass"
         CMPBIT=0
