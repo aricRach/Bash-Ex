@@ -11,7 +11,7 @@ HLGBIT=1
 
 # check if there is makeFile in 'dir path'
 # egrep is regex for return '0' or '1'
-cd $1
+cd "$1"
 if(find $1 -name "Makefile" | egrep '.*')
 then
     if(make) # check if compilation passed
