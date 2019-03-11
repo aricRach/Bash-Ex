@@ -20,7 +20,7 @@ then
         CMPBIT=0
      # ./a.out # Option for run the program
     
-    valgrind --leak-check=full -v ./a.out chmod a+x > Valgrind.txt 2>&1 # memory leaks check,chmod a+x- gives permission
+    valgrind --leak-check=full -v ./$2 chmod a+x > Valgrind.txt 2>&1 # memory leaks check,chmod a+x- gives permission
 
      if(grep -q "ERROR SUMMARY: 0 errors" "Valgrind.txt") # check valgrind result
     then
