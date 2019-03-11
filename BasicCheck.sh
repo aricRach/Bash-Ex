@@ -14,7 +14,7 @@ HLGBIT=1
 cd "$1"
 if(0)
 then
-    if(make) # check if compilation passed
+    if(0) # check if compilation passed
     then
         CMP="Pass"
         CMPBIT=0
