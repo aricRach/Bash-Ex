@@ -9,8 +9,12 @@ CMPBIT=4
 VLGBIT=2
 HLGBIT=1
 
+DIRPATH=$1
+PROGNAME=$2
+
 # check if there is makeFile in 'dir path'
 # egrep is regex for return '0' or '1'
+cd $DIRPATH
 if(find ./ -name "Makefile" | egrep '.*')
 
 then
@@ -20,7 +24,7 @@ then
         CMPBIT=0
      # ./a.out # Option for run the program
     
-    valgrind --leak-check=full -v ./$2 chmod a+x > Valgrind.txt 2>&1 # memory leaks check,chmod a+x- gives permission
+    valgrind --leak-check=full -v ./$PROGNAME chmod a+x > Valgrind.txt 2>&1 # memory leaks check,chmod a+x- gives permission
 
      if(grep -q "ERROR SUMMARY: 0 errors" "Valgrind.txt") # check valgrind result
     then
@@ -28,7 +32,7 @@ then
         VLGBIT=0
      fi
     
-    valgrind --tool=helgrind ./$2 > Helgrind.txt 2>&1 # check thread race
+    valgrind --tool=helgrind ./$PROGNAME > Helgrind.txt 2>&1 # check thread race
    
      if(grep -q "ERROR SUMMARY: 0 errors" "Helgrind.txt") # check helgrind result
     then
